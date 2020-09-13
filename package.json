@@ -9,6 +9,7 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "@clangd/install": "^0.1.3",
     "nuxt": "^2.14.0"
   },
   "devDependencies": {}

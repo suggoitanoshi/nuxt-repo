@@ -1,16 +1,36 @@
 <template>
-  <div>
-    <Nuxt />
+  <div class='container'>
+    <nav class='navbar'>
+      <a
+        href='/'
+        class='nav-link'
+      >
+        To-Do
+      </a>
+      <a
+        href='/about'
+        class='nav-link'
+      >
+        About
+      </a>
+    </nav>
+    <div class='content'>
+      <Nuxt />
+    </div>
   </div>
 </template>
 
 <style>
+:root{
+  --background: #303030;
+  --theme: #3c6382;
+  --theme-accent: #0a3d62;
+  --accent: #a0a0a0;
+  --contrast: #ffffff;
+}
+
 html {
   font-family:
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
     Roboto,
     'Helvetica Neue',
     Arial,
@@ -22,6 +42,7 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
+  color: var(--contrast);
 }
 
 *,
@@ -31,32 +52,59 @@ html {
   margin: 0;
 }
 
-.button--green {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #3b8070;
-  color: #3b8070;
+body{
+  background: var(--background);
+}
+
+a{
+  color: var(--theme);
+}
+a::visited{
+  color: var(--theme-accent);
+}
+
+.container{
+  display: flex;
+  flex-flow: column;
+  flex: 1 1 auto;
+  align-items: center;
+}
+
+nav{
+  display: flex;
+  flex: 1 1 auto;
+  justify-content: stretch;
+  background: var(--theme);
+  width: 100%;
+}
+
+.nav-link{
+  padding: 1em 1.5em;
+  background: var(--theme);
+  color: var(--contrast);
   text-decoration: none;
-  padding: 10px 30px;
+  transition: background .1s;
+  text-transform: uppercase;
+  font-weight: 900;
 }
 
-.button--green:hover {
-  color: #fff;
-  background-color: #3b8070;
+.nav-link:hover, .nav-link:active{
+  background: var(--theme-accent);
 }
 
-.button--grey {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #35495e;
-  color: #35495e;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
+.content{
+  margin-top: .5em;
+  padding: 0 1em;
+  max-width: 720px;
 }
 
-.button--grey:hover {
-  color: #fff;
-  background-color: #35495e;
+img{
+  height: 20em;
+  max-height: 100vh;
+}
+@media screen and (max-width: 720px){
+  img{
+    height: auto;
+  }
 }
 </style>
